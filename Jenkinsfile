@@ -21,7 +21,6 @@ pipeline {
         stage('compilar') {
             steps {
                 sh '''
-                cd /ome/devops/workspace/academia
                 pwd
                 docker run --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn clean install
                 '''
@@ -30,7 +29,6 @@ pipeline {
         stage('deployar') {
             steps {
                 sh '''
-                cd /home/devops/workspace/academia
                 docker cp /home/devops/workspace/academia/target/sparkjava-hello-world-1.0.war tomcat://usr/local/tomcat/webapps
                 '''
             }
