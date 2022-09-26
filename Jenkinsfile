@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh '''
                 ls
-                echo "hola"
+                echo "hola frens"
                 echo $prueba
                 pwd
                 ls -lrt
